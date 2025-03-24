@@ -103,6 +103,77 @@ html, body {
     background: #ffffff;
 }
 
+/* Play Button Styling */
+.play-btn {
+    background-color: #1DB954; /* Spotify Green */
+    color: #1DB954;
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.play-btn:hover {
+    background-color: #0e8035; /* Darker green */
+    transform: scale(1.1); /* Slightly enlarges */
+}
+
+/* Icon inside button */
+.play-btn i {
+    font-size: 20px;
+}
 
 
 
+/* Playlist Page Enhancements */
+.playlist-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.playlist.card {
+    width: 280px;
+    min-height: 200px;
+    border-radius: 10px;
+    border: 2px solid #1DB954;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.playlist.card:hover {
+    transform: scale(1.05);
+}
+
+.playlist h4 {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.playlist .btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.list-group-item {
+    border: none;
+    padding: 8px;
+    color: #ffffff;
+}
+
+.list-group-item:hover {
+    background-color: #1DB954;
+    color: black;
+}

@@ -6,6 +6,7 @@
     <title>Add Song Lyrics</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="../assets/img/llogo.png" rel="icon">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../assets/css/lyrics.css">
@@ -36,11 +37,6 @@ include("../includes/headuser.php");
         </form>
     </div>
 
-    <script>
-        function startSong() {
-            alert("Song started!");
-        }
-    </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>

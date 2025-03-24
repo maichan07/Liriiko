@@ -11,6 +11,7 @@ include("../includes/config.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <link href="../assets/img/llogo.png" rel="icon">
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -45,34 +46,22 @@ include("../includes/headuser.php");
         }
        }
        ?>
-       :)
+       
       </p>
       <button class="btn add-btn" onclick="window.location.href='./lyrics.php';"> Add Song Lyrics</button>
       <br>
       
         
         <div class="search-bar">
-            <input type="text" id="search" placeholder="Search for playlists...">
+            <input type="text" id="search" placeholder="Search for song lyrics...">
         </div>
         
-        <h2>Your Playlists</h2>
+        <h2>Sing along with your favorite music</h2>
         <div class="playlist-container">
             <div class="playlist">
                 <img src="../assets/img/b.jpg" alt="Playlist 1">
                 <p>Chill Vibes</p>
-            </div>
-            <div class="playlist">
-                <img src="../assets/img/l.jpg" alt="Playlist 2">
-                <p>Workout Mix</p>
-            </div>
-            <div class="playlist">
-                <img src="../assets/img/r.jpg" alt="Playlist 3">
-                <p>Top Hits</p>
-            </div>
-            <div class="playlist">
-                <img src="../assets/img/l.jpg" alt="Playlist 4">
-                <p>Old School</p>
-            </div>
+            
         </div>
     </div>
     </div>
