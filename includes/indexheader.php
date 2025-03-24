@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mujestic</title>
+    <title>Liriiko</title>
     
     <!-- Bootstrap & Custom CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,10 +20,10 @@ session_start();
 <body class="majestic-body">
 
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg majestic-nav">
-    <div class="containers">
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
         <!-- Logo / Brand -->
-        <a class="navbar-brand majestic-title" href="index.php">Mujestic</a>
+        <a class="navbar-brand majestic-title" href="index.php">Liriiko</a>
         
         <!-- Mobile Toggle Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

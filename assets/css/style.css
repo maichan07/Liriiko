@@ -1,14 +1,15 @@
 /* Cute Navbar Styles */
 .navbar {
-    background: linear-gradient(to right, #4facfe, #00f2fe); /* Blue-Green Gradient */
+    background: linear-gradient(to right, #4facfe, #031202); /* Blue-Green Gradient */
     padding: 12px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline;
 }
 
 .navbar-brand {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #4facfe;
+    color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     font-family: "Pacifico", cursive; /* Cute, playful font */
 }
@@ -36,17 +37,15 @@
     transform: scale(1.05);
 }
 
-.containers{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"poppins",sans-serif;
-    width:450px;
-    padding:1.5rem;
+.navbar-nav{
+    padding-left: 50px;
+
 }
+
+.nav-item{
+    padding-left: 15px;
+}
+
 
 /* Active Link */
 .navbar-nav .nav-item.active .nav-link {
@@ -86,7 +85,7 @@
     background:#fff;
     width:450px;
     padding:1.5rem;
-    margin:50px auto;
+    margin:30px auto;
     border-radius:10px;
     box-shadow:0 20px 35px rgba(0,0,1,0.9);
 }
@@ -209,3 +208,67 @@ button:hover{
     text-decoration:underline;
     color:blue;
 }
+
+
+/* Transparent Sign-in and Sign-up Box */
+#signIn, #signup {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    border-radius: 10px;
+    padding: 1rem;
+    width: 500px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.9);
+    color: #1DB954;
+    text-align: center;
+}
+
+/* Input Fields */
+.input-group input {
+    color: #000; /* Text color inside input */
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #1DB954;
+    padding-left: 1rem;
+    font-size: 16px;
+}
+
+/* Green Placeholder */
+.input-group input::placeholder {
+    color: #1DB954;
+    opacity: 0.7;
+}
+
+/* Label Animation */
+.input-group label {
+    color: #1DB954;
+    position: relative;
+    left: 1rem;
+    top: -1.5rem;
+    cursor: auto;
+    transition: 0.3s ease all;
+}
+
+/* Placeholder moves up when input is filled */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -3rem;
+    font-size: 14px;
+}
+
+/* Button Styles */
+.btn {
+    font-size: 1.1rem;
+    padding: 8px 0;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    background: #1DB954;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #17a74b;
+}
+
+

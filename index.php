@@ -41,7 +41,7 @@ include 'includes/indexheader.php';
        <input type="submit" class="btn" value="Sign Up" name="signUp">
       </form>
       <p class="or">
-        ----------or--------
+        OR
       </p>
       <div class="icons">
         <i class="fab fa-google"></i>

@@ -18,12 +18,24 @@ include("../includes/config.php");
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<?php
+include("../includes/headuser.php");
+
+?>
     <div>
-    <?php include("../includes/headuser.php"); ?>
-    <?php include("../includes/sideuser.php"); ?>
-    <div style="text-align:center; padding:15%;">
+
+    <div id="layoutSidenav_content" style="text-align:center">
+      <div  class="container-fluid">
+
+    <?php 
+    include("../includes/sidebar.php");
+    ?>
     
-      <p  style="font-size:50px; font-weight:bold;">
+    <div class="content">
+        <h1>Welcome to Liriiko</h1>
+        <p>Your personalized music dashboard</p>
+        <p  style="font-size:20px; font-weight:bold;">
        Hello  <?php 
        if(isset($_SESSION['email'])){
         $email=$_SESSION['email'];
@@ -35,9 +47,35 @@ include("../includes/config.php");
        ?>
        :)
       </p>
-      <button class="btn add-btn"> Add New Item</button>
+      <button class="btn add-btn" onclick="window.location.href='./lyrics.php';"> Add Song Lyrics</button>
       <br>
-      <a href="../logout.php">Logout</a>
+      
+        
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for playlists...">
+        </div>
+        
+        <h2>Your Playlists</h2>
+        <div class="playlist-container">
+            <div class="playlist">
+                <img src="../assets/img/b.jpg" alt="Playlist 1">
+                <p>Chill Vibes</p>
+            </div>
+            <div class="playlist">
+                <img src="../assets/img/l.jpg" alt="Playlist 2">
+                <p>Workout Mix</p>
+            </div>
+            <div class="playlist">
+                <img src="../assets/img/r.jpg" alt="Playlist 3">
+                <p>Top Hits</p>
+            </div>
+            <div class="playlist">
+                <img src="../assets/img/l.jpg" alt="Playlist 4">
+                <p>Old School</p>
+            </div>
+        </div>
+    </div>
+    </div>
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
