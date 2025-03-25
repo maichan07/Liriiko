@@ -100,11 +100,10 @@ form{
     margin-bottom:0.4rem;
 }
 input{
-    color:inherit;
     width:100%;
     background-color:transparent;
     border:none;
-    border-bottom:1px solid #757575;
+    border-bottom:1px solid #1b7b33;
     padding-left:1.5rem;
     font-size:15px;
 }
@@ -120,13 +119,13 @@ input{
 input:focus{
     background-color: transparent;
     outline:transparent;
-    border-bottom:2px solid hsl(327,90%,28%);
+    border-bottom:2px solid rgb(3, 66, 21);
 }
 input::placeholder{
     color:transparent;
 }
 label{
-    color:#757575;
+    color:rgb(3, 66, 21);
     position:relative;
     left:1.2em;
     top:-1.3em;
@@ -135,7 +134,7 @@ label{
 }
 input:focus~label,input:not(:placeholder-shown)~label{
     top:-3em;
-    color:hsl(327,90%,28%);
+    color:rgb(3, 66, 21);
     font-size:15px;
 }
 .recover{
@@ -146,7 +145,7 @@ input:focus~label,input:not(:placeholder-shown)~label{
 }
 .recover a{
     text-decoration:none;
-    color:rgb(125,125,235);
+    color:rgb(0, 0, 0);;
 }
 .recover a:hover{
     color:blue;
@@ -159,7 +158,7 @@ input:focus~label,input:not(:placeholder-shown)~label{
     outline:none;
     border:none;
     width:100%;
-    background:rgb(125,125,235);
+    background:rgb(0, 0, 0);
     color:white;
     cursor:pointer;
     transition:0.9s;
@@ -176,7 +175,7 @@ input:focus~label,input:not(:placeholder-shown)~label{
     text-align:center;
 }
 .icons i{
-    color:rgb(125,125,235);
+    color:rgb(3, 66, 21);
     padding:0.8rem 1.5rem;
     border-radius:10px;
     font-size:1.5rem;
@@ -188,7 +187,7 @@ input:focus~label,input:not(:placeholder-shown)~label{
 .icons i:hover{
     background:#07001f;
     font-size:1.6rem;
-    border:2px solid rgb(125,125,235);
+    border:2px solid rgb(3, 66, 21);
 }
 .links{
     display:flex;
@@ -198,7 +197,7 @@ input:focus~label,input:not(:placeholder-shown)~label{
     font-weight:bold;
 }
 button{
-    color:rgb(125,125,235);
+    color:rgb(3, 66, 21);
     border:none;
     background-color:transparent;
     font-size:1rem;

@@ -1,3 +1,16 @@
+
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php"); // Redirect to login page
+    exit();
+}
+
+include("../includes/headuser.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +26,8 @@
 </head>
 
 <body>
-<?php
-include("../includes/headuser.php");
 
-?>
+
     <div class="container">
         <h2>Add Song Lyrics</h2>
         <form id="lyricsForm" action="save_lyrics.php" method="POST">
