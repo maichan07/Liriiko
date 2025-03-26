@@ -1,67 +1,92 @@
 <?php
-session_start();
-include './includes/config.php';
+include 'includes/config.php';
+include 'includes/toast.php';
 
-// User Registration (Sign-Up)
-if (isset($_POST['signUp'])) {
-    $firstName = mysqli_real_escape_string($conn, $_POST['fName']);
-    $lastName = mysqli_real_escape_string($conn, $_POST['lName']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Secure password hashing
+// Register Function 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    // Check if email already exists
-    $checkEmailQuery = "SELECT id FROM liriikouser WHERE email = ?";
-    $stmt = $conn->prepare($checkEmailQuery);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows > 0) {
-        echo "Email Address Already Exists!";
+    $query = "INSERT INTO users (firstName,lastName, email, password) VALUES ('$firstName','$lastName', '$email', '$password')";
+    if (mysqli_query($conn, $query)) {
+        $_SESSION['message'] = "Register Successfully";
+        $_SESSION['code'] = "success";
     } else {
-        $insertQuery = "INSERT INTO liriikouser (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
-        $stmt = $conn->prepare($insertQuery);
-        $stmt->bind_param("ssss", $firstName, $lastName, $email, $password);
-
-        if ($stmt->execute()) {
-            header("Location: index.php"); // Redirect to login page
-            exit();
-        } else {
-            echo "Error: " . $conn->error;
-        }
+        $_SESSION['message'] = "Error : Fail to Register ";
+        $_SESSION['code'] = "danger";;
     }
-    $stmt->close();
+    header("Location: login.php");
+    exit();
 }
-
-// User Login (Sign-In)
-if (isset($_POST['signIn'])) {
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = $_POST['password'];
-
-    $sql = "SELECT id, email, password FROM liriikouser WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-
-        // Verify password
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['user_id'] = $row['id']; // Store user ID in session
-            $_SESSION['email'] = $row['email'];
-
-            header("Location: user/homepage.php");
-            exit();
-        } else {
-            echo "Incorrect Password!";
-        }
-    } else {
-        echo "User Not Found, Incorrect Email or Password!";
-    }
-    $stmt->close();
-}
-
-$conn->close();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CJ - Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .blurry-container {
+                    background: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+                    backdrop-filter: blur(10px); /* Blurry effect */
+                    border-radius: 15px;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    padding: 20px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
+
+                
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light"
+style="background: url('assets/img/music-bg.jpg') no-repeat center center/cover;">>
+>
+
+<!-- Register Form  -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4" >
+            <div class="card shadow-lg p-4 blurry-container">
+                <div class="card-body">
+                    <h3 class="text-center mb-4 text-white">Register</h3>
+
+                    <form method="POST" action="register.php">
+                        <div class="mb-3">
+                            <label class="form-label text-white">First Name</label>
+                            <input type="text" name="firstName" class="form-control" placeholder="Enter First Name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-white ">Last Name</label>
+                            <input type="text" name="lastName" class="form-control" placeholder="Enter Last Name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-white">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-white">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark w-100">Register</button>
+                    </form>
+
+                    <p class="text-center mt-3 text-white">
+                        Already have an account? <a class="btn btn-primary" href="login.php">Login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
